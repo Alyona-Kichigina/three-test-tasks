@@ -1,0 +1,16 @@
+.menu {
+  display: flex;
+  justify-content: center;
+
+  align-items: flex-end;
+  //flex-grow: 2;
+
+  .menu-item {
+    padding-right: 15px;
+    text-transform: uppercase;
+    color: $black;
+    &.active {
+      color: $gold;
+    }
+  }
+}

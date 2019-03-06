@@ -1,0 +1,30 @@
+.header {
+  .header-wrapper {
+    padding: 10px 32px;
+    border-bottom: 4px solid $border-color;
+    display: flex;
+    justify-content: space-between;
+    .logo {
+      align-items: center;
+    }
+    .user {
+      cursor: pointer;
+      align-items: flex-end;
+      display: flex;
+      svg {
+        fill: $grey;
+        transition: all 0.3s ease-in-out;
+      }
+      &.active {
+        svg {
+          fill: $gold-user;
+        }
+      }
+      &:hover {
+        svg {
+          fill: $grey-hover;
+        }
+      }
+    }
+  }
+}
