@@ -30,24 +30,24 @@ export default {
     validationErrors: Array,
     submitFailed: Boolean,
     changed: Boolean,
-    touched: Boolean
-  }
-}
+    touched: Boolean,
+  },
+};
 </script>
 
 <style scoped>
   .input-container {
     display: flex;
     flex-direction: column;
-    margin-bottom: 2rem;
+    margin-bottom: 20px;
   }
   .input-wrapper {
     position: relative;
   }
   .error-container {
-    position: absolute;
-    left: 0;
-    bottom: -17px;
+    /*position: absolute;*/
+    /*left: 0;*/
+    /*bottom: -17px;*/
     font-size: 0.8571rem;
     color: #FF7979;
     background: #FDEDED;
@@ -56,4 +56,19 @@ export default {
   .text-muted{
     font-size: 1rem;
   }
+  /*label {*/
+    /*position:absolute;*/
+    /*left: 35%;*/
+    /*top: 15px;*/
+    /*color: #C4C4C4;*/
+    /*font-size: 0.8571rem;*/
+    /*transition: all 0.5s ease;*/
+    /*pointer-events: none;*/
+  /*}*/
+  /*input[type=text]:focus + .reportText {*/
+    /*display:block;*/
+    /*color: black;*/
+    /*top: -20px;*/
+    /*font-size: 14px;*/
+  /*}*/
 </style>

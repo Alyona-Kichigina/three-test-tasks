@@ -32,60 +32,61 @@
 </template>
 
 <script>
-import { getValidation } from '@/utils/valiadtor'
-import Input from '@/components/Fields/InputComponent'
-import PrimaryButton from '@/components/Buttons/PrimaryButton'
+import { getValidation } from '@/utils/valiadtor';
+import Input from '@/components/Fields/InputComponent';
+import PrimaryButton from '@/components/Buttons/PrimaryButton';
+
 export default {
   name: 'index',
-  data () {
+  data() {
     return {
       formPayload: {
         login: undefined,
-        password: undefined
+        password: undefined,
       },
       // объект ошибки валлидации
       validationErrors: {},
       // не выводим ошибку
       submitFailed: false,
       isDomenValid: false,
-    }
+    };
   },
   // срабатывает при изменениях
   computed: {
-    authErrors () {
+    authErrors() {
       // выводим ощибку что неправильно заполнены поля ввода, вызвав объект authState.error
-      //return this.$store.getters.authState.error
+      // return this.$store.getters.authState.error
     },
   },
   methods: {
     // при нажатии на кнопку
-    handleSubmit () {
+    handleSubmit() {
       // обязательные поля для заполнения
       const rules = {
         login: 'required',
-        password: 'required'
-      }
+        password: 'required',
+      };
       // вызываем проверку валидации
-      getValidation(this.formPayload, rules, { onFail: this.handleSubmitFail, onSuccess: this.submitForm })
+      getValidation(this.formPayload, rules, { onFail: this.handleSubmitFail, onSuccess: this.submitForm });
     },
     // функция при ошибке валидации
-    handleSubmitFail (e) {
+    handleSubmitFail(e) {
       // выводим ошибку
-      this.submitFailed = true
+      this.submitFailed = true;
       // выводим текст ошибки
-      this.validationErrors = e
+      this.validationErrors = e;
     },
     // функция если валидация прошла успешно
-    submitForm () {
+    submitForm() {
       // не выводим ошибку
-      this.submitFailed = false
+      this.submitFailed = false;
       // очищаем объект ошибки
-      this.validationErrors = {}
+      this.validationErrors = {};
     },
   },
-	components: {
-    Input, PrimaryButton
-	}
+  components: {
+    Input, PrimaryButton,
+  },
 };
 </script>
 

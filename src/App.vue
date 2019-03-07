@@ -9,15 +9,15 @@
 </template>
 
 <script>
-import Header from './components/header/index'
-import Footer from './components/footer'
+import Header from './components/header/index';
+import Footer from './components/footer';
 
 export default {
- components: {
-   Header,
-   Footer
- }
-}
+  components: {
+    Header,
+    Footer,
+  },
+};
 </script>
 
 <style lang="scss">
