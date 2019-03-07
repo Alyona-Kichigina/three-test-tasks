@@ -6,6 +6,7 @@
           <h1>Авторизация пользователя</h1>
           <Tab :tabTitles="tabName">
             <SignIn></SignIn>
+            <Registration></Registration>
           </Tab>
         </div>
       </div>
@@ -15,6 +16,7 @@
 
 <script>
 import SignIn from '../../Layout/SignIn';
+import Registration from '../../Layout/Registration';
 import Tab from '@/components/Tab'
 
 export default {
@@ -27,7 +29,7 @@ export default {
     }
   },
   components: {
-    SignIn, Tab
+    SignIn, Registration, Tab
   },
 };
 </script>

@@ -1,38 +1,38 @@
 <template>
-	<div class="wrapper">
-		<form
-			@submit.prevent="handleSubmit"
-			action=""
-		>
-			<div style="color: red">
-				{{ authErrors }}
-			</div>
-			<div class="form-control">
-				<Input
-					id="login"
-					:value="formPayload.login"
-					:validation-errors="validationErrors.login"
-					:submit-failed="submitFailed"
-					placeholder="Логин"
-				/>
-				<Input
-					id="password"
-					:value="formPayload.password"
-					:validation-errors="validationErrors.password"
-					:submit-failed="submitFailed"
-					placeholder="Пароль"
-				/>
-				<PrimaryButton
-					@click="handleSubmit"
-					type="button"
-				>Войти</PrimaryButton>
-			</div>
-		</form>
-	</div>
+	<form
+		@submit.prevent="handleSubmit"
+		action=""
+	>
+		<div style="color: red">
+			{{ authErrors }}
+		</div>
+		<div class="form-control">
+			<Input
+				id="login"
+				:value="formPayload.login"
+				:validation-errors="validationErrors.login"
+				:submit-failed="submitFailed"
+				whenFocusedPlaceholder="example@publicismedia.ru"
+				placeholder="Логин"
+			/>
+			<Input
+				id="password"
+				:value="formPayload.password"
+				:validation-errors="validationErrors.password"
+				:submit-failed="submitFailed"
+				whenFocusedPlaceholder="your pass"
+				placeholder="Пароль"
+			/>
+			<PrimaryButton
+				@click="handleSubmit"
+				type="button"
+			>Войти</PrimaryButton>
+		</div>
+	</form>
 </template>
 
 <script>
-import { getValidation } from '@/utils/valiadtor';
+import { getValidation } from '@/utils/validator';
 import Input from '@/components/Fields/InputComponent';
 import PrimaryButton from '@/components/Buttons/PrimaryButton';
 

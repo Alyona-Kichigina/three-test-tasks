@@ -1,22 +1,42 @@
 .header {
   .header-wrapper {
-    padding: 10px 32px;
+    padding: 10px 40px;
     border-bottom: 4px solid $border-color;
     display: flex;
     justify-content: space-between;
+    position: relative;
+    z-index: 2;
+    @media (max-width: 859px) {
+      padding: 10px;
+      border-bottom: 1px solid $border-color;
+      align-items: center;
+    }
     .logo {
       align-items: center;
+      @media (max-width: 859px) {
+        img {
+          position: absolute;
+          left: 0;
+          right: 0;
+          margin: 0 auto;
+          top: 0;
+          bottom: 0;
+        }
+      }
     }
     .user {
       cursor: pointer;
       align-items: flex-end;
       display: flex;
-      margin-bottom: 14px;
+      padding-bottom: 14px;
+      @media (max-width: 859px) {
+        padding-bottom: 0;
+      }
       svg {
         fill: $grey;
         transition: all 0.3s ease-in-out;
       }
-      &.active {
+      &.router-link-exact-active  {
         svg {
           fill: $gold-user;
         }
@@ -27,5 +47,42 @@
         }
       }
     }
+    .icon-watch-menu {
+      .header-btn {
+        cursor: pointer;
+        outline: none;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: 0 auto;
+      }
+    }
   }
+}
+
+// Animation slide button
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+  transition: all .3s;
+}
+.slide-fade-enter,
+.slide-fade-leave-active {
+  opacity: 0;
+}
+.slide-fade-enter {
+  transform: translateX(30px);
+}
+.slide-fade-leave-active {
+  transform: translateX(-30px);
+}
+
+// Dropdown animation
+.dropdown-enter-active,
+.dropdown-leave-active {
+  transition: all .5s;
+  opacity: 1;
+}
+.dropdown-enter,
+.dropdown-leave-to {
+  opacity: 0;
 }

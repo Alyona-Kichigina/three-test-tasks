@@ -2,18 +2,18 @@
   <div class="home">
     <div class="container">
       <div class="title">
-        Home
+        People
       </div>
     </div>
   </div>
 </template>
 
 <script>
-
-export default {
-  name: 'home',
-  components: {
-
-  },
-};
+  export default {
+    name: 'People'
+  };
 </script>
+
+<style scoped>
+
+</style>

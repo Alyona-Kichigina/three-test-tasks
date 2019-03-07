@@ -4,10 +4,8 @@ import Validator from 'validatorjs';
 export function getValidation(values, rules, options = {}) {
   // если не передается функция onFail или onSuccess, то по умолчанию в ней будет null
   const { onFail = () => null, onSuccess = () => null } = options;
-
-  const validation = new Validator(values, rules);
-
   // вызываем функцию класса
+  const validation = new Validator(values, rules);
   // если валидация не прошла
   if (validation.fails()) {
     // вызываем функцию и в нее передаем ошибку

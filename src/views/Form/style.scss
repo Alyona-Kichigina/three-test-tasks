@@ -5,12 +5,15 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    padding: 105px 0px;
+    padding: 105px 0;
+    @media (max-width: 859px) {
+      padding: 50px 10px;
+    }
   }
   .form-wrapper {
     background: rgba(255, 255, 255, 0.7);
     border-radius: 4px;
-    padding: 33px 62px 42px;
+    padding: 33px 20px 42px;
     max-width: 470px;
     margin-left: auto;
     margin-right: auto;
@@ -23,6 +26,12 @@
       color: $gold;
       margin-top: 0;
       margin-bottom: 30px;
+    }
+    form {
+      max-width: 346px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
     }
   }
 }

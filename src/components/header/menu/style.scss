@@ -4,13 +4,47 @@
   margin-bottom: 14px;
   align-items: flex-end;
   //flex-grow: 2;
-
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  bottom: 8px;
+  @media (max-width: 859px) {
+    flex-direction: column;
+    top: 100%;
+    background: $white;
+    bottom: auto;
+    padding-bottom: 22px;
+    padding-top: 33px;
+    border-top: 1px solid $border-color;
+    box-shadow: 0px 15px 10px -15px #111;
+    border-radius: 0px 0px 4px 4px;
+    margin-bottom: 0;
+  }
   .menu-item {
-    padding-right: 15px;
+    padding-right: 35px;
     text-transform: uppercase;
     color: $black;
-    &.active {
-      color: $gold;
+    &:last-child {
+      padding-right: 0;
+    }
+    @media (max-width: 859px) {
+      padding-right: 0;
+      margin: 0 auto;
+      padding-bottom: 37px;
+      font-size: 16px;
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+    &:hover, &.router-link-exact-active {
+        color: $gold;
+    }
+  }
+  &.active {
+    @media (max-width: 859px) {
+      display: none;
     }
   }
 }

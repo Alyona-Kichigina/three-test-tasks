@@ -5,6 +5,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media (max-width: 859px) {
+      padding-right: 10px;
+      padding-left: 10px;
+    }
     .copyright {
       color: $grey;
       font-size: 0.7143rem;
@@ -28,6 +32,9 @@
         box-sizing: border-box;
         &:last-child {
           margin-right: 0;
+        }
+        @media (max-width: 859px) {
+          margin-right: 10px;
         }
         svg {
           fill: $grey;
