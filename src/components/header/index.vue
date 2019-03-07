@@ -19,12 +19,13 @@
 </template>
 
 <script>
-import Menu from './menu/index'
+import Menu from './menu/index';
+
 export default {
   name: 'index',
-	components: {
-    Menu
-	}
+  components: {
+    Menu,
+  },
 };
 </script>
 

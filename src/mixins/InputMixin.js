@@ -12,27 +12,27 @@ export default {
     changeDocValue: Function,
     validationErrors: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
-  data: function () {
+  data() {
     return {
       touched: false,
-      changed: false
-    }
+      changed: false,
+    };
   },
   methods: {
-    handleBlur () {
-      this.touched = true
-      this.changed = true
-    }
+    handleBlur() {
+      this.touched = true;
+      this.changed = true;
+    },
   },
   watch: {
-    submitFailed (newVal) {
+    submitFailed(newVal) {
       if (newVal) {
-        this.changed = false
-        this.touched = true
+        this.changed = false;
+        this.touched = true;
       }
-    }
-  }
-}
+    },
+  },
+};

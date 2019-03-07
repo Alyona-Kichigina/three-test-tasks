@@ -12,37 +12,37 @@
 <script>
 export default {
   name: 'index',
-	data () {
+  data() {
     return {
       linksArray: [
 	      {
 	        id: 1,
 		      title: 'Media',
-		      url: '/media'
+		      url: '/media',
 	      },
         {
           id: 2,
           title: 'Digital',
-          url: '/digital'
+          url: '/digital',
         },
         {
           id: 3,
           title: 'Social',
-          url: '/social'
+          url: '/social',
         },
         {
           id: 4,
           title: 'Commerce',
-          url: '/commerce'
+          url: '/commerce',
         },
         {
           id: 5,
           title: 'People',
-          url: '/people'
-        }
-      ]
-    }
-	}
+          url: '/people',
+        },
+      ],
+    };
+  },
 };
 </script>
 
