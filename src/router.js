@@ -18,5 +18,30 @@ export default new Router({
       name: 'form',
       component: () => import('./views/Form/Form.vue'),
     },
+    {
+      path: '/media',
+      name: 'Media',
+      component: () => import('./views/Media.vue'),
+    },
+    {
+      path: '/digital',
+      name: 'Digital',
+      component: () => import('./views/Digital.vue'),
+    },
+    {
+      path: '/social',
+      name: 'Social',
+      component: () => import('./views/Social.vue'),
+    },
+    {
+      path: '/commerce',
+      name: 'Commerce',
+      component: () => import('./views/Commerce.vue'),
+    },
+    {
+      path: '/people',
+      name: 'People',
+      component: () => import('./views/People.vue'),
+    },
   ],
 });

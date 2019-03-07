@@ -8,13 +8,18 @@
     :changed="changed"
     :touched="touched"
   >
+    <transition name="slide-fade">
+      <span class="placeholderFocus" v-if="focused">{{ placeholder }}</span>
+    </transition>
     <input
       :id="id"
       :class="submitFailed && 'has-error'"
-      :placeholder="placeholder"
+      :placeholder="focused ? whenFocusedPlaceholder : placeholder"
       :value="value"
       v-on="_events"
+      @focus="handleFocus"
       @blur="handleBlur"
+      class="form-input"
     >
   </InputWrapper>
 </template>
@@ -37,15 +42,25 @@ export default {
 };
 </script>
 <style lang="scss">
-  input {
+  .placeholderFocus {
+    position: absolute;
+    font-size: 10px;
+    color: $grey;
+    background: $white;
+    top: -6px;
+    left: 15px;
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+  .form-input {
     background: $white;
     border: 1px solid $border-color;
     border-radius: 4px;
     padding: 14px 20px;
     color: $grey;
     font-size: 0.8571rem;
-    /*width: 100%;*/
-    /*display: block;*/
+    width: 100%;
+    display: block;
     &:focus {
       border-bottom: 1px solid $yellow;
     }
@@ -54,5 +69,15 @@ export default {
     .el-input__inner{
       border-color: #fc4b6c;
     }
+  }
+  
+  .slide-fade-active,
+  .slide-fade-active {
+    transition: all 1s;
+    opacity: 1;
+  }
+  .slide-fade-enter,
+  .slide-fade-leave-to {
+    opacity: 0;
   }
 </style>

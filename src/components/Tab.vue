@@ -50,13 +50,13 @@ export default {
 	    border-bottom: 1px solid $border-color;
 	    margin-bottom: 35px;
       .tab-item {
-        line-height: 38px;
+        line-height: 24px;
         padding: 0 30px;
-        color: rgb(34, 34, 34);
-        font-size: 1rem;
         margin-right: 7px;
         transition: all 0.3s ease-in-out;
 	      text-transform: uppercase;
+	      cursor: pointer;
+        position: relative;
         &:last-child {
           margin-right: 0;
         }
@@ -65,12 +65,21 @@ export default {
         }
         &.active {
 	        font-weight: 700;
-          border-bottom: 1px solid $gold-user;
+          &:before {
+            background: $gold-user;
+          }
+        }
+        &:before {
+          content: '';
+          transition: all .3s ease-in-out;
+          position: absolute;
+          bottom: -1px;
+          height: 1px;
+          background: transparent;
+          left: 0;
+          right: 0;
         }
       }
-    }
-    .tab-content {
-    
     }
   }
 </style>

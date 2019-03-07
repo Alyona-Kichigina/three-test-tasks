@@ -3,11 +3,9 @@ export default {
     label: String,
     value: String,
     id: String,
-    // TODO: remove data?
-    data: String,
     placeholder: String,
+    whenFocusedPlaceholder: String,
     type: String,
-    tabIndex: Number,
     submitFailed: Boolean,
     changeDocValue: Function,
     validationErrors: {
@@ -18,6 +16,7 @@ export default {
   data() {
     return {
       touched: false,
+      focused: false,
       changed: false,
     };
   },
@@ -25,6 +24,10 @@ export default {
     handleBlur() {
       this.touched = true;
       this.changed = true;
+      this.focused = false;
+    },
+    handleFocus() {
+      this.focused = true;
     },
   },
   watch: {
