@@ -3,14 +3,13 @@
   justify-content: center;
   margin-bottom: 14px;
   align-items: flex-end;
-  //flex-grow: 2;
-  z-index: 1;
   position: absolute;
   left: 0;
   right: 0;
   text-align: center;
   bottom: 8px;
   @media (max-width: 859px) {
+    z-index: -1;
     flex-direction: column;
     top: 100%;
     background: $white;
@@ -21,6 +20,15 @@
     box-shadow: 0px 15px 10px -15px #111;
     border-radius: 0px 0px 4px 4px;
     margin-bottom: 0;
+    transform: translateY(-120%);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+  }
+  &.active {
+    @media (max-width: 859px) {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   .menu-item {
     padding-right: 35px;
@@ -40,11 +48,6 @@
     }
     &:hover, &.router-link-exact-active {
         color: $gold;
-    }
-  }
-  &.active {
-    @media (max-width: 859px) {
-      display: none;
     }
   }
 }

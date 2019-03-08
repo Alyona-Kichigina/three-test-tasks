@@ -5,7 +5,6 @@ export default {
     id: String,
     placeholder: String,
     whenFocusedPlaceholder: String,
-    type: String,
     submitFailed: Boolean,
     changeDocValue: Function,
     validationErrors: {
@@ -13,29 +12,29 @@ export default {
       default: () => [],
     },
   },
-  data() {
+  data () {
     return {
       touched: false,
       focused: false,
       changed: false,
-    };
+    }
   },
   methods: {
-    handleBlur() {
-      this.touched = true;
-      this.changed = true;
-      this.focused = false;
+    handleBlur () {
+      this.touched = true
+      this.changed = true
+      this.focused = false
     },
-    handleFocus() {
-      this.focused = true;
+    handleFocus () {
+      this.focused = true
     },
   },
   watch: {
-    submitFailed(newVal) {
+    submitFailed (newVal) {
       if (newVal) {
-        this.changed = false;
-        this.touched = true;
+        this.changed = false
+        this.touched = true
       }
     },
   },
-};
+}

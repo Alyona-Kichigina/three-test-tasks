@@ -47,24 +47,25 @@ export default {
     .tabs {
       display: flex;
       justify-content: center;
-	    border-bottom: 1px solid $border-color;
-	    margin-bottom: 35px;
+      border-bottom: 1px solid $border-color;
+      margin-bottom: 35px;
       .tab-item {
         line-height: 24px;
         padding: 0 30px;
         margin-right: 7px;
         transition: all 0.3s ease-in-out;
-	      text-transform: uppercase;
-	      cursor: pointer;
+        text-transform: uppercase;
+        cursor: pointer;
         position: relative;
         &:last-child {
           margin-right: 0;
         }
         &:hover {
-	        font-weight: 700;
+          font-weight: 700;
         }
         &.active {
-	        font-weight: 700;
+          transition: all 1s ease-in-out;
+          font-weight: 700;
           &:before {
             background: $gold-user;
           }

@@ -1,25 +1,30 @@
 <template>
-	<div class="menu">
-		<router-link
-			v-for="link in linksArray"
-			:key="link.id"
-			:to="link.url"
-			class="menu-item RobotoSlab"
-		>{{ link.title}}</router-link>
-	</div>
+  <div
+    class="menu"
+    @click.stop="handleChildrenClick"
+  >
+    <router-link
+      v-for="link in linksArray"
+      :key="link.id"
+      :to="link.url"
+      class="menu-item RobotoSlab"
+    >
+      {{ link.title }}
+    </router-link>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'index',
-  data() {
+  name: 'Index',
+  data () {
     return {
       linksArray: [
-	      {
-	        id: 1,
-		      title: 'Media',
-		      url: '/media',
-	      },
+        {
+          id: 1,
+          title: 'Media',
+          url: '/media',
+        },
         {
           id: 2,
           title: 'Digital',
@@ -41,9 +46,14 @@ export default {
           url: '/people',
         },
       ],
-    };
+    }
   },
-};
+  methods: {
+    handleChildrenClick () {
+      this.$emit('selectMenuItem')
+    }
+  },
+}
 </script>
 
 <style scoped lang="scss" src="./style.scss"></style>

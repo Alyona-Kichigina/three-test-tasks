@@ -9,9 +9,9 @@
 </template>
 
 <script>
-  export default {
-    name: 'Media'
-  };
+export default {
+  name: 'Media'
+}
 </script>
 
 <style scoped>

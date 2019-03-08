@@ -32,7 +32,7 @@ export default {
     changed: Boolean,
     touched: Boolean,
   },
-};
+}
 </script>
 
 <style scoped lang="scss">
@@ -44,17 +44,6 @@ export default {
   .input-wrapper {
     position: relative;
     display: flex;
-    &:focus {
-      &:before {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 1px;
-        background: #000;
-      }
-    }
   }
   .error-container {
     font-size: 0.8571rem;
