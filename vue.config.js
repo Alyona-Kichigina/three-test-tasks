@@ -20,4 +20,4 @@ module.exports = {
   },
 
   lintOnSave: undefined,
-};
+}

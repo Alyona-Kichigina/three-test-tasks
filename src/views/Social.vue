@@ -9,9 +9,9 @@
 </template>
 
 <script>
-  export default {
-    name: 'Social'
-  };
+export default {
+  name: 'Social'
+}
 </script>
 
 <style scoped>

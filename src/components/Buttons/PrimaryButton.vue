@@ -2,10 +2,10 @@
 export default {
   name: 'PrimaryButton',
   functional: true,
-  render(createElement, { data, children }) {
-    return createElement('button', { class: ['btn-def'], ...data }, children);
+  render (createElement, { data, children }) {
+    return createElement('button', { class: ['btn-def'], ...data }, children)
   },
-};
+}
 </script>
 
 <style scoped lang="scss">
