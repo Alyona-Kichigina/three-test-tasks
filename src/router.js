@@ -36,12 +36,12 @@ export default new Router({
     {
       path: '/commerce',
       name: 'Commerce',
-      component: () => import('./views/Commerce.vue'),
+      component: () => import('./views/Commerce/Commerce.vue'),
     },
     {
       path: '/people',
       name: 'People',
-      component: () => import('./views/People.vue'),
+      component: () => import('./views/People/People.vue'),
     },
   ],
 })
