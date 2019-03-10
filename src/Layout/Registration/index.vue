@@ -40,9 +40,6 @@ import PrimaryButton from '@/components/Buttons/PrimaryButton'
 
 export default {
   name: 'Index',
-  components: {
-    Input, PrimaryButton,
-  },
   data () {
     return {
       formPayload: {
@@ -89,6 +86,9 @@ export default {
       this.validationErrors = {}
     },
   },
+  components: {
+    Input, PrimaryButton,
+  }
 }
 </script>
 
