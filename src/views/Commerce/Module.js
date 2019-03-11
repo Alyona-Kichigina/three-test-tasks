@@ -1,4 +1,5 @@
 import { READ_COMMERCE_DATA } from '@/views/Commerce/Module';
+import { SAVE_COMMERCE_DATA } from '@/views/Commerce/Module';
 
 const state = {
   commerceDate: [
@@ -36,7 +37,9 @@ const state = {
 }
 
 const mutations = {
-
+  [SAVE_COMMERCE_DATA] (state, payload) {
+    state.peoplesData = payload
+  }
 }
 
 const getters = {

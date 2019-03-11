@@ -1,13 +1,13 @@
 .header {
   .header-wrapper {
-    padding: 10px 40px;
+    padding: 10px 0;
     border-bottom: 4px solid $border-color;
     display: flex;
     justify-content: space-between;
     position: relative;
     z-index: 2;
     @media (max-width: 859px) {
-      padding: 10px;
+      padding: 10px 0;
       border-bottom: 1px solid $border-color;
       align-items: center;
     }

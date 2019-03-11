@@ -71,14 +71,11 @@ export default {
     }
   }
   .has-error {
-    .el-input__inner{
-      border-color: #fc4b6c;
-    }
+    border-bottom-color: $red;
   }
 
   .slide-fade-active,
   .slide-fade-active {
-    //transition: all 1s;
     opacity: 1;
   }
   .slide-fade-enter,

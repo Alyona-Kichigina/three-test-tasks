@@ -1,9 +1,15 @@
 .people-block {
   padding-top: 25px;
   padding-bottom: 60px;
+  .table-people {
+    padding-bottom: 28px;
+  }
   .bnt-groups{
     display: flex;
-    .btn {
+    @media (max-width: 860px) {
+      display: block;
+    }
+    .btn-def {
       margin-right: 20px;
     }
   }

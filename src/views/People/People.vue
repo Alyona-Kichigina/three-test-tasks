@@ -65,11 +65,14 @@ export default {
           }
         },
         width: '100%',
-        rowHeights: '40px',
-        height: 280,
+        rowHeights: '50px',
+        height: 365,
+        columnHeaderHeight: 50,
+        currentRowClassName: 'active-row',
+        activeHeaderClassName: 'active-header',
         manualColumnResize: true,
         manualRowResize: true,
-        tableClassName: 'red',
+        tableClassName: 'table-style',
         colHeaders: [
           'ID',
           'Name',

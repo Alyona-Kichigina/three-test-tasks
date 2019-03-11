@@ -1,0 +1,46 @@
+.table {
+  .tableOfCommerce {
+    thead {
+      tr {
+        th {
+          text-align: left;
+          &:first-child {
+            text-align: center;
+          }
+        }
+      }
+    }
+    tbody {
+      tr {
+        &:last-child {
+          td {
+            background: rgba(133, 117, 74, 0.31);
+            color: $black;
+          }
+        }
+      }
+      td {
+        text-align: left;
+        &:first-child {
+          //padding-left: 82px;
+          text-align: center;
+          position: relative;
+          //&:before {
+          //  content: '';
+          //  width: 14px;
+          //  height: 14px;
+          //  background: $yellow;
+          //  border: 1px solid $border-color;
+          //  //margin: 3px;
+          //  border-radius: 4px;
+          //  position: absolute;
+          //  top: 0;
+          //  bottom: 0;
+          //  right: 23px;
+          //  margin: auto;
+          //}
+        }
+      }
+    }
+  }
+}

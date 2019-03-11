@@ -1,4 +1,3 @@
-// импортирум класс Validator
 import Validator from 'validatorjs'
 
 export function getValidation (values, rules, options = {}) {
@@ -10,7 +9,6 @@ export function getValidation (values, rules, options = {}) {
   if (validation.fails()) {
     // вызываем функцию и в нее передаем ошибку
     onFail(validation.errors.all())
-    // вызываем ошибку
     throw Error(validation.errors.all())
   }
   // вызываем эту функцию если валидация прошла успешно
