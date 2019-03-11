@@ -53,7 +53,6 @@ export default {
         line-height: 24px;
         padding: 0 30px;
         margin-right: 7px;
-        transition: all 0.3s ease-in-out;
         text-transform: uppercase;
         cursor: pointer;
         position: relative;
@@ -64,7 +63,6 @@ export default {
           font-weight: 700;
         }
         &.active {
-          transition: all 1s ease-in-out;
           font-weight: 700;
           &:before {
             background: $gold-user;

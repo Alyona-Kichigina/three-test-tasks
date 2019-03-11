@@ -1,6 +1,5 @@
 import axios from 'axios'
-import { DATA_TABLE } from '../../config'
-import { TRANSFER_DATA } from '../../config'
+import { DATA_TABLE, TRANSFER_DATA } from '../../config'
 
 export const SAVE_PEOPLE_DATA = 'People/SAVE_PEOPLE_DATA'
 export const READ_PEOPLE_DATA = 'People/READ_PEOPLE_DATA'

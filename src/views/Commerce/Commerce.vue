@@ -12,6 +12,7 @@
           ref="table"
           :data="CommerceDate"
           :settings="settings"
+          className="tableOfCommerce"
         />
       </div>
     </div>
@@ -20,7 +21,7 @@
 
 <script>
 import { HotTable } from '@handsontable/vue'
-import { READ_COMMERCE_DATA } from '@/views/Commerce/Module'
+import { READ_COMMERCE_DATA, SAVE_COMMERCE_DATA } from '@/views/Commerce/Module'
 import LineChart from './LineChart.js'
 
 export default {
@@ -40,8 +41,38 @@ export default {
         },
         afterSelection: this.handleSelectTable,
         width: '100%',
-        // height: 300,
-        rowHeights: 40,
+        activeHeaderClassName: 'active-header',
+        currentRowClassName: 'active-row',
+        rowHeights: '50px',
+        columnHeaderHeight: 50,
+        colWidths: [40, 20, 20, 20],
+        stretchH: 'all',
+        manualColumnResize: true,
+        manualRowResize: true,
+        tableClassName: 'table-style',
+        columnSummary: [
+          {
+            sourceColumn: 1,
+            destinationRow: 5,
+            destinationColumn: 1,
+            type: 'average',
+            forceNumeric: true,
+          },
+          {
+            sourceColumn: 2,
+            destinationRow: 5,
+            destinationColumn: 2,
+            type: 'average',
+            forceNumeric: true,
+          },
+          {
+            sourceColumn: 3,
+            destinationRow: 5,
+            destinationColumn: 3,
+            type: 'average',
+            forceNumeric: true,
+          }
+        ],
         colHeaders: [
           'Дни',
           'Визиты',
@@ -55,12 +86,13 @@ export default {
           { data: 'views' }
         ],
       },
-      currentChartDataKey: 'visit'
+      currentChartDataKey: 'visit',
+      afterChange: this.dataEditing
     }
   },
   computed: {
     CommerceDate () {
-      return this.$store.getters[READ_COMMERCE_DATA]
+      return this.$store.getters[READ_COMMERCE_DATA].concat({})
     },
     // состояние графика
     arrayDay () {
@@ -77,7 +109,6 @@ export default {
             label: 'Data One',
             backgroundColor: 'transparent',
             borderColor: '#DFC800',
-            boxShadow: '0px 6px 8px rgba(133, 117, 74, 0.31)',
             borderWidth: 4,
             pointBorderColor: 'transparent',
             data: data
@@ -86,16 +117,18 @@ export default {
       }
     },
   },
-  beforeMount () {
-    // запускаем действие
-    // return this.$store.getters[READ_COMMERCE_DATA]
-  },
   methods: {
     handleSelectTable (row, column) {
       if (column !== 0) this.currentChartDataKey = this.settings.columns[column].data
+    },
+    dataEditing (arg) {
+      if (arg !== null) {
+        this.$store.commit(SAVE_COMMERCE_DATA, this.$refs.table.hotInstance.getSourceData())
+      }
     }
-  },
+  }
 }
 </script>
 
 <style scoped lang="scss" src="./style.scss"></style>
+<style lang="scss" src="./style-table.scss"></style>

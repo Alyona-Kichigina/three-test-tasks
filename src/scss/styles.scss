@@ -13,6 +13,7 @@ body {
 
 .container {
   margin: 0 auto;
+  //padding: 0 32px;
   @media (min-width: 1139px) {
     max-width: 1140px;
     min-width: 1140px;
@@ -22,6 +23,7 @@ body {
   }
 }
 a {
+  outline: none;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
 }
@@ -48,16 +50,16 @@ a {
 .fade-enter, .fade-leave-to{
   opacity: 0;
 }
+form {
+  button {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 
 ::placeholder {
   color: $grey;
   font-size: 0.8571rem;
-}
-
-.wrapper {
-  form {
-    text-align: center;
-  }
 }
 
 .hidden-md {
@@ -77,6 +79,54 @@ button {
   border: none;
 }
 
- #hot-display-license-info {
-    display: none;
+#hot-display-license-info {
+  display: none;
+}
+
+.table-style {
+  text-align: center;
+  thead {
+    tr {
+      th {
+        vertical-align: middle;
+        background-color: $white;
+        font-size: 1rem;
+        text-transform: uppercase;
+        color: $black;
+        border-right: none;
+        &:last-child {
+          border-right: 1px solid $border-color;
+        }
+        &.active-header, &.ht__highlight{
+          color: $gold-user;
+          background: $white;
+        }
+      }
+    }
   }
+  tbody {
+    tr {
+      &:hover {
+        td {
+          background: $backgroundRow;
+        }
+      }
+    }
+    td {
+      border-right: none;
+      border-color: $border-color;
+      vertical-align: middle;
+      font-size: 1rem;
+      &.active-row, &.highlight {
+        background: $backgroundRow;
+      }
+      &.highlight {
+        font-weight: 700;
+      }
+      &:last-child {
+        border-right: 1px solid $border-color;
+      }
+    }
+  }
+}
+

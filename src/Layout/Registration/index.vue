@@ -53,7 +53,6 @@ export default {
       isDomenValid: false,
     }
   },
-  // срабатывает при изменениях
   computed: {
     authErrors () {
       // выводим ощибку что неправильно заполнены поля ввода, вызвав объект authState.error
@@ -61,7 +60,6 @@ export default {
     },
   },
   methods: {
-    // при нажатии на кнопку
     handleSubmit () {
       // обязательные поля для заполнения
       const rules = {

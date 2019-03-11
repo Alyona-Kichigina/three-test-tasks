@@ -47,8 +47,8 @@ export default {
   }
   .error-container {
     font-size: 0.8571rem;
-    color: #FF7979;
-    background: #FDEDED;
+    color: $red;
+    background: $red-bg;
     padding: 13px;
     margin-top: 4px;
   }
