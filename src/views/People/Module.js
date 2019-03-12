@@ -30,8 +30,11 @@ const actions = {
     }
   },
   async [TRANSFER_PEOPLE_DATA] (payload) {
+    const fd = new FormData()
+    fd.append('filename', 'export.xlsx')
+    fd.append('data', payload)
     try {
-      await axios.post(TRANSFER_DATA, payload, { headers: { 'Content-Type': 'application/json', mode: 'no-cors' } })
+      await axios.post(TRANSFER_DATA, payload, { headers: { 'Content-Type': 'multipart/form-data', mode: 'no-cors' } })
     } catch (e) {
       console.log(e)
     }

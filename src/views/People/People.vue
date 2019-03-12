@@ -5,28 +5,35 @@
         Посетители
       </div>
       <div class="table-people">
-        <HotTable
-          :data="peoplesData"
-          :settings="settings"
-          className="tableOfVisitors"
-          ref="table"
-        />
+        <transition
+          name="fade"
+          mode="out-in"
+        >
+          <HotTable
+            ref="table"
+            :data="peoplesData"
+            :settings="settings"
+            v-if="show"
+            class-name="tableOfVisitors"
+          />
+        </transition>
       </div>
       <div class="bnt-groups">
         <PrimaryButton
-          class="btn"
+          class="mr-20 mb-20"
           @click="getData"
         >
           Загрузить с сервера
         </PrimaryButton>
         <PrimaryButton
+          class="mr-20 mb-20"
           @click="transferData"
-          class="btn"
         >
           Загрузить на сервер
         </PrimaryButton>
         <PrimaryButton
-          class="btn"
+          @click="a"
+          class="mb-20"
         >
           скачать в .xls
         </PrimaryButton>
@@ -36,12 +43,16 @@
 </template>
 
 <script>
+import Excel from 'exceljs/dist/es5/exceljs.browser'
 import PrimaryButton from '@/components/Buttons/PrimaryButton'
 import { HotTable } from '@handsontable/vue'
 import { READ_PEOPLE_DATA, FETCH_PEOPLE_DATA, SAVE_PEOPLE_DATA, TRANSFER_PEOPLE_DATA } from '@/views/People/Module'
 
 export default {
   name: 'People',
+  components: {
+    PrimaryButton, HotTable
+  },
   data () {
     return {
       settings: {
@@ -107,8 +118,16 @@ export default {
           { data: 'company.catchPhrase' },
           { data: 'company.bs' },
         ],
-        afterChange: this.dataEditing
+        afterChange: this.dataEditing,
       },
+      alphabetArray: [
+        'A', 'B', 'C', 'D', 'E',
+        'F', 'G', 'H', 'I', 'J',
+        'K', 'L', 'M', 'N', 'O',
+        'P', 'Q', 'R', 'S', 'T',
+        'U', 'V', 'W', 'X', 'Y', 'Z'
+      ],
+      show: false
     }
   },
   computed: {
@@ -118,19 +137,71 @@ export default {
   },
   methods: {
     getData () {
+      this.show = true
       return this.$store.dispatch(FETCH_PEOPLE_DATA)
     },
-    transferData () {
-      return this.$store.dispatch(TRANSFER_PEOPLE_DATA, this.peoplesData)
+    async transferData () {
+      const data = await this.exportData()
+      return this.$store.dispatch(TRANSFER_PEOPLE_DATA, data)
     },
     dataEditing (arg) {
       if (arg !== null) {
         this.$store.commit(SAVE_PEOPLE_DATA, this.$refs.table.hotInstance.getSourceData())
       }
+    },
+    async a () {
+      const data = await this.exportData()
+      const a = document.createElement('a')
+      const url = URL.createObjectURL(data)
+      a.href = url
+      a.download = 'export.xlsx'
+      document.body.appendChild(a)
+      a.click()
+      setTimeout(function () {
+        document.body.removeChild(a)
+        window.URL.revokeObjectURL(url)
+      }, 0)
+    },
+    async exportData () {
+      const tableData = this.$refs.table.hotInstance.getData()
+      const wb = new Excel.Workbook()
+      const ws = wb.addWorksheet('Export')
+      this.settings.colHeaders.forEach((item, index) => {
+        const header = ws.getCell(`${this.alphabetArray[index]}1`)
+        header.value = item.toUpperCase()
+        header.font = {
+          name: 'Roboto',
+          color: { argb: 'FF000000' },
+          family: 2,
+          size: 14
+        }
+        header.alignment = {
+          horizontal: 'center',
+          vertical: 'middle',
+          wrapText: true
+        }
+      })
+      tableData.forEach((row, rowIndex) => {
+        row.forEach((column, columnIndex) => {
+          const cell = ws.getCell(`${this.alphabetArray[columnIndex]}${rowIndex + 2}`)
+          cell.value = column
+          cell.alignment = { wrapText: true }
+          cell.font = {
+            name: 'Roboto',
+            color: { argb: 'FF000000' },
+            family: 2,
+            size: 14
+          }
+          cell.alignment = {
+            horizontal: 'center',
+            vertical: 'middle',
+            wrapText: true
+          }
+        })
+      })
+      const data = await wb.xlsx.writeBuffer({ base64: true })
+      return new Blob([data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' })
     }
-  },
-  components: {
-    PrimaryButton, HotTable
   }
 }
 </script>

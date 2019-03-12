@@ -27,6 +27,7 @@
       <PrimaryButton
         type="button"
         @click="handleSubmit"
+        class="mt-10"
       >
         Войти
       </PrimaryButton>
@@ -55,12 +56,6 @@ export default {
       isDomenValid: false,
     }
   },
-  computed: {
-    authErrors () {
-      // выводим ощибку что неправильно заполнены поля ввода, вызвав объект authState.error
-      // return this.$store.getters.authState.error
-    },
-  },
   methods: {
     handleSubmit () {
       const rules = {
@@ -80,5 +75,3 @@ export default {
   },
 }
 </script>
-
-<style scoped lang="scss" src="./style.scss"></style>

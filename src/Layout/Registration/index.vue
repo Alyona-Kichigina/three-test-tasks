@@ -17,6 +17,7 @@
       />
       <Input
         id="passwordRegistration"
+        type="password"
         :value="formPayload.password"
         :validation-errors="validationErrors.password"
         :submit-failed="submitFailed"
@@ -26,6 +27,7 @@
       <PrimaryButton
         type="button"
         @click="handleSubmit"
+        class="mt-10"
       >
         Зарегистрироваться
       </PrimaryButton>
@@ -52,12 +54,6 @@ export default {
       submitFailed: false,
       isDomenValid: false,
     }
-  },
-  computed: {
-    authErrors () {
-      // выводим ощибку что неправильно заполнены поля ввода, вызвав объект authState.error
-      // return this.$store.getters.authState.error
-    },
   },
   methods: {
     handleSubmit () {
@@ -89,5 +85,3 @@ export default {
   }
 }
 </script>
-
-<style scoped lang="scss" src="./style.scss"></style>

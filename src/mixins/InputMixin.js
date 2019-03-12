@@ -3,8 +3,6 @@ export default {
     label: String,
     value: String,
     id: String,
-    placeholder: String,
-    whenFocusedPlaceholder: String,
     submitFailed: Boolean,
     changeDocValue: Function,
     validationErrors: {

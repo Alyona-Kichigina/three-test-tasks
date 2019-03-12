@@ -1,11 +1,12 @@
 .table {
+  margin-top: 38px;
   .tableOfCommerce {
     thead {
       tr {
         th {
           text-align: left;
           &:first-child {
-            text-align: center;
+            padding-left: 82px;
           }
         }
       }
@@ -22,23 +23,7 @@
       td {
         text-align: left;
         &:first-child {
-          //padding-left: 82px;
-          text-align: center;
-          position: relative;
-          //&:before {
-          //  content: '';
-          //  width: 14px;
-          //  height: 14px;
-          //  background: $yellow;
-          //  border: 1px solid $border-color;
-          //  //margin: 3px;
-          //  border-radius: 4px;
-          //  position: absolute;
-          //  top: 0;
-          //  bottom: 0;
-          //  right: 23px;
-          //  margin: auto;
-          //}
+          padding-left: 82px;
         }
       }
     }

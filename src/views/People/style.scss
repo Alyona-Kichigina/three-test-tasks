@@ -1,6 +1,8 @@
 .people-block {
   padding-top: 25px;
-  padding-bottom: 60px;
+  padding-bottom: 40px;
+  padding-left: 32px;
+  padding-right: 32px;
   .table-people {
     padding-bottom: 28px;
   }
@@ -8,9 +10,6 @@
     display: flex;
     @media (max-width: 860px) {
       display: block;
-    }
-    .btn-def {
-      margin-right: 20px;
     }
   }
 }
