@@ -2,7 +2,7 @@
   <div class="сommerce-block">
     <div class="container">
       <div class="title">
-        Визиты
+        {{settings.colHeaders[indexTitle]}} {{dataRange}}
       </div>
       <div class="schedule">
         <line-chart :chart-data="arrayDay" height="120px" :style="{borderColor: 'transparent'}"/>
@@ -87,12 +87,13 @@ export default {
         ],
       },
       currentChartDataKey: 'visit',
-      afterChange: this.dataEditing
+      afterChange: this.dataEditing,
+      indexTitle: 1
     }
   },
   computed: {
     CommerceDate () {
-      return this.$store.getters[READ_COMMERCE_DATA].concat({})
+      return this.$store.getters[READ_COMMERCE_DATA].concat({ day: 'ИТОГО В СРЕДНЕМ' })
     },
     // состояние графика
     arrayDay () {
@@ -101,6 +102,8 @@ export default {
         acc.data.push(value[this.currentChartDataKey])
         return acc
       }, { days: [], data: [] })
+      data.pop()
+      days.pop()
       return {
         // период измерения
         labels: days,
@@ -116,10 +119,14 @@ export default {
         ]
       }
     },
+    dataRange () {
+      return `${this.CommerceDate[0].day.slice(0, 5)} - ${this.CommerceDate[this.CommerceDate.length - 2].day.slice(0, 5)}`
+    }
   },
   methods: {
     handleSelectTable (row, column) {
       if (column !== 0) this.currentChartDataKey = this.settings.columns[column].data
+      if (column !== 0) this.indexTitle = column
     },
     dataEditing (arg) {
       if (arg !== null) {

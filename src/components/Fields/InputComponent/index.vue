@@ -1,32 +1,4 @@
-<template>
-  <!--компонент который показывает ошибку-->
-  <InputWrapper
-    :id="id"
-    :label="label"
-    :validation-errors="validationErrors"
-    :submit-failed="submitFailed"
-    :changed="changed"
-    :touched="touched"
-  >
-    <transition name="slide-fade">
-      <span
-        v-if="focused"
-        class="placeholderFocus"
-      >{{ placeholder }}</span>
-    </transition>
-    <input
-      :attrs="$attrs"
-      :id="id"
-      :class="submitFailed && 'has-error'"
-      :placeholder="focused ? whenFocusedPlaceholder : placeholder"
-      :value="value"
-      class="form-input"
-      v-on="_events"
-      @focus="handleFocus"
-      @blur="handleBlur"
-    >
-  </InputWrapper>
-</template>
+
 <script>
 import InputWrapper from '../InputWrapper.vue'
 import InputMixin from '../../../mixins/InputMixin.js'
@@ -38,11 +10,50 @@ export default {
   },
   mixins: [InputMixin],
   props: {
+    whenFocusedPlaceholder: String,
     value: {
       type: [Number, String],
       default: '',
     },
   },
+  render (h) {
+    return (
+      <InputWrapper
+        id={this.id}
+        label={this.label}
+        validation-errors={this.validationErrors}
+        submit-failed={this.submitFailed}
+        changed={this.changed}
+        touched={this.touched}
+      >
+        <transition enterClass="slide-fade-leave-to" leaveClass="slide-fade-active" enterToClass="slide-fade-active" leaveToClass="slide-fade-leave-to">
+          {this.focused ? (
+            <span
+              class="placeholderFocus"
+            >
+              {this.$attrs.placeholder}
+            </span>
+          ) : null}
+        </transition>
+        {h('input', {
+          props: this.$props,
+          attrs: {
+            ...this.$attrs,
+            placeholder: this.focused ? this.whenFocusedPlaceholder : this.$attrs.placeholder
+          },
+          class: {
+            'form-input': true,
+            'has-error': this.submitFailed
+          },
+          on: {
+            ...this.events,
+            blur: this.handleBlur,
+            focus: this.handleFocus,
+          }
+        })}
+      </InputWrapper>
+    )
+  }
 }
 </script>
 <style lang="scss">
@@ -55,7 +66,7 @@ export default {
     left: 15px;
     padding-left: 3px;
     padding-right: 3px;
-    transition:all .4s ease
+    transition: opacity .4s ease-in-out;
   }
   .form-input {
     background: $white;

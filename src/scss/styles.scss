@@ -13,12 +13,11 @@ body {
 
 .container {
   margin: 0 auto;
-  //padding: 0 32px;
   @media (min-width: 1139px) {
     max-width: 1140px;
     min-width: 1140px;
   }
-  @media (max-width: 1140px) {
+  @media (max-width: 860px) {
     padding: 0 16px;
   }
 }
@@ -72,6 +71,20 @@ form {
   @media (min-width: 860px) {
     display: none;
   }
+}
+
+.mr-20 {
+  margin-right: 20px;
+
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+
+.mt-10 {
+  margin-top: 10px;
 }
 
 button {
