@@ -1,5 +1,5 @@
-import { READ_COMMERCE_DATA } from '@/views/Commerce/Module';
-import { SAVE_COMMERCE_DATA } from '@/views/Commerce/Module';
+import { READ_COMMERCE_DATA } from '@/views/Commerce/Module'
+import { SAVE_COMMERCE_DATA } from '@/views/Commerce/Module'
 
 const state = {
   commerceDate: [
