@@ -15,6 +15,7 @@
           className="tableOfCommerce"
         />
       </div>
+      <CustomChart :data="customData"></CustomChart>
     </div>
   </div>
 </template>
@@ -23,11 +24,12 @@
 import { HotTable } from '@handsontable/vue'
 import { READ_COMMERCE_DATA, SAVE_COMMERCE_DATA } from '@/views/Commerce/Module'
 import LineChart from './LineChart.js'
+import CustomChart from '@/components/CustomChart'
 
 export default {
   name: 'Commerce',
   components: {
-    HotTable, LineChart
+    HotTable, LineChart, CustomChart
   },
   data () {
     return {
@@ -119,6 +121,13 @@ export default {
         ]
       }
     },
+    customData () {
+      return this.CommerceDate.map(({ day, [this.currentChartDataKey]: value }) => {
+        const [dayA, month, year] = day.split('/')
+        return ({ date: new Date(year, month, dayA), value })
+      })
+    },
+    // вывод первой и последней даты
     dataRange () {
       return `${this.CommerceDate[0].day.slice(0, 5)} - ${this.CommerceDate[this.CommerceDate.length - 2].day.slice(0, 5)}`
     }
