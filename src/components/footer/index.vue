@@ -61,7 +61,7 @@
 
 <script>
 export default {
-  name: 'Index',
+  name: 'Footer',
 }
 </script>
 

@@ -7,13 +7,12 @@
       <div class="schedule">
         <line-chart
           :chart-data="arrayDay"
-          height="120px"
           :style="{borderColor: 'transparent'}"
         />
       </div>
       <div class="table space-container">
         <HotTable
-          ref="table"
+          ref="tableCommerce"
           :data="CommerceDate"
           :settings="settings"
           class-name="tableOfCommerce"
@@ -37,7 +36,6 @@ export default {
   },
   data () {
     return {
-      datacollection: null,
       settings: {
         dataSchema: {
           day: null,
@@ -45,17 +43,26 @@ export default {
           visitors: null,
           views: null
         },
+        // для того чтобы при выборе каких-либо данных в таблице вызывть эту функцию
         afterSelection: this.handleSelectTable,
         width: '100%',
+        // добавляем класс активному заголовку колонки
         activeHeaderClassName: 'active-header',
+        // добавляем класс активной строке, кроме выбраной ячейки
         currentRowClassName: 'active-row',
+        // высота строки
         rowHeights: '50px',
+        // высота хеадера таблицы
         columnHeaderHeight: 50,
+        // ширина колонок
         colWidths: [40, 20, 20, 20],
         stretchH: 'all',
+        // изменение размеров колонок
         manualColumnResize: true,
         manualRowResize: true,
+        // добавляем класс хеадеру таблицы
         tableClassName: 'table-style',
+        // получам среднее значение
         columnSummary: [
           {
             sourceColumn: 1,
@@ -91,17 +98,22 @@ export default {
           { data: 'visitors' },
           { data: 'views' }
         ],
+        // для изменения данных в таблице
+        afterChange: this.dataEditingA,
       },
+      // то что выводится на графике
       currentChartDataKey: 'visit',
-      afterChange: this.dataEditing,
+      // заголовок выбраных данных таблицы
       indexTitle: 1
     }
   },
   computed: {
     CommerceDate () {
+      // выводим в таблице данные
+      // и добавляем новую строку в таблицу прописав в первую колонку текст
       return this.$store.getters[READ_COMMERCE_DATA].concat({ day: 'ИТОГО В СРЕДНЕМ' })
     },
-    // состояние графика
+    // состояние старого графика
     arrayDay () {
       const { days, data } = this.CommerceDate.reduce((acc, value) => {
         acc.days.push(value.day)
@@ -125,8 +137,10 @@ export default {
         ]
       }
     },
+    // вывод данных в новом графике
     customData () {
       return this.CommerceDate.map(({ day, [this.currentChartDataKey]: value }) => {
+        // разбиваем объект на массивы для того что бы в дате передать правильно
         const [dayA, month, year] = day.split('/')
         return ({ date: new Date(year, month, dayA), value })
       })
@@ -138,12 +152,14 @@ export default {
   },
   methods: {
     handleSelectTable (row, column) {
+      // вывод выбраных данных в графике, кроме даты
       if (column !== 0) this.currentChartDataKey = this.settings.columns[column].data
+      // вывод заголовка выбраных данных
       if (column !== 0) this.indexTitle = column
     },
-    dataEditing (arg) {
-      if (arg !== null) {
-        this.$store.commit(SAVE_COMMERCE_DATA, this.$refs.table.hotInstance.getSourceData())
+    dataEditingA (arg) {
+      if (arg !== null && this.$refs.tableCommerce.hotInstance) {
+        this.$store.commit(SAVE_COMMERCE_DATA, this.$refs.tableCommerce.hotInstance.getSourceData())
       }
     }
   }

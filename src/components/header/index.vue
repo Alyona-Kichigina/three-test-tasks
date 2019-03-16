@@ -71,7 +71,7 @@
 import Menu from './menu/index'
 
 export default {
-  name: 'Index',
+  name: 'Header',
   components: {
     Menu,
   },

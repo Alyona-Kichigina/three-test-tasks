@@ -41,7 +41,7 @@ import Input from '@/components/Fields/InputComponent'
 import PrimaryButton from '@/components/Buttons/PrimaryButton'
 
 export default {
-  name: 'Index',
+  name: 'signIn',
   components: {
     Input, PrimaryButton,
   },
