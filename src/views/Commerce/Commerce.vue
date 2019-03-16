@@ -2,20 +2,24 @@
   <div class="сommerce-block">
     <div class="container">
       <div class="title">
-        {{settings.colHeaders[indexTitle]}} {{dataRange}}
+        {{ settings.colHeaders[indexTitle] }} {{ dataRange }}
       </div>
       <div class="schedule">
-        <line-chart :chart-data="arrayDay" height="120px" :style="{borderColor: 'transparent'}"/>
+        <line-chart
+          :chart-data="arrayDay"
+          height="120px"
+          :style="{borderColor: 'transparent'}"
+        />
       </div>
-      <div class="table">
+      <div class="table space-container">
         <HotTable
           ref="table"
           :data="CommerceDate"
           :settings="settings"
-          className="tableOfCommerce"
+          class-name="tableOfCommerce"
         />
       </div>
-      <CustomChart :data="customData"></CustomChart>
+      <CustomChart :data="customData" />
     </div>
   </div>
 </template>
@@ -146,5 +150,5 @@ export default {
 }
 </script>
 
-<style scoped lang="scss" src="./style.scss"></style>
+<style scoped lang="scss"></style>
 <style lang="scss" src="./style-table.scss"></style>

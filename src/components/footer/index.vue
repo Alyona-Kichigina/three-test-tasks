@@ -1,9 +1,9 @@
 <template>
   <div class="footer">
     <div class="container">
-      <div class="footer-wrapper">
+      <div class="footer-wrapper space-container">
         <router-link
-          class="copyright RobotoSlab"
+          class="copyright f-f-RobotoSlab"
           to="/"
         >
           (c) Publicis Groupe 2019

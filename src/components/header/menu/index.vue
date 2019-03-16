@@ -7,7 +7,7 @@
       v-for="link in linksArray"
       :key="link.id"
       :to="link.url"
-      class="menu-item RobotoSlab"
+      class="menu-item f-f-RobotoSlab"
     >
       {{ link.title }}
     </router-link>

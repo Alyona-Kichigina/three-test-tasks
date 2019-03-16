@@ -60,7 +60,7 @@ export default {
   .placeholderFocus {
     position: absolute;
     font-size: 10px;
-    color: $grey;
+    color: $grey-medium;
     background: $white;
     top: -6px;
     left: 15px;
@@ -70,10 +70,10 @@ export default {
   }
   .form-input {
     background: $white;
-    border: 1px solid $border-color;
+    border: 1px solid $grey-light;
     border-radius: 4px;
     padding: 14px 20px;
-    color: $grey;
+    color: $grey-medium;
     font-size: 0.8571rem;
     width: 100%;
     display: block;

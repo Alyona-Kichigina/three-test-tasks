@@ -24,12 +24,15 @@ export default {
 	background-color: $gold;
 	border-color: transparent;
 	text-transform: uppercase;
+  box-sizing: border-box;
 	min-width: 184px;
+  &:hover, &:focus, &:active {
+    outline: none;
+  }
 	&:hover{
-		background-color: $grey-hover;
-		outline: 0;
+		background-color: $grey;
 		}
-	&:focus {
+	&:focus, &:active {
 		background-color: $black;
 	}
 }

@@ -1,16 +1,13 @@
 .footer {
   .footer-wrapper {
-    padding: 23px 32px;
-    background: $grey-hover;
+    padding-top: 23px;
+    padding-bottom: 23px;
+    background: $grey;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    @media (max-width: 859px) {
-      padding-right: 10px;
-      padding-left: 10px;
-    }
     .copyright {
-      color: $grey;
+      color: $grey-medium;
       font-size: 0.7143rem;
       text-transform: uppercase;
       padding-top: 4px;
@@ -25,7 +22,7 @@
         width: 30px;
         height: 30px;
         border-radius: 50%;
-        border: 2px solid $grey;
+        border: 2px solid $grey-medium;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -38,7 +35,7 @@
           margin-right: 10px;
         }
         svg {
-          fill: $grey;
+          fill: $grey-medium;
           transition: all 0.3s ease-in-out;
         }
         &:hover {

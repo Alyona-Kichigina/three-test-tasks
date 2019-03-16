@@ -1,14 +1,16 @@
 .header {
   .header-wrapper {
-    padding: 10px 32px;
-    border-bottom: 4px solid $border-color;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 4px solid $grey-light;
     display: flex;
     justify-content: space-between;
     position: relative;
     z-index: 2;
     @media (max-width: 859px) {
-      padding: 10px 0;
-      border-bottom: 1px solid $border-color;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid $grey-light;
       align-items: center;
     }
     .logo {
@@ -33,17 +35,17 @@
         padding-bottom: 0;
       }
       svg {
-        fill: $grey;
+        fill: $grey-medium;
         transition: all 0.3s ease-in-out;
       }
       &.router-link-exact-active  {
         svg {
-          fill: $gold-user;
+          fill: $gold-medium;
         }
       }
       &:hover {
         svg {
-          fill: $grey-hover;
+          fill: $grey;
         }
       }
     }
@@ -54,7 +56,7 @@
         position: absolute;
         top: 0;
         bottom: 0;
-        margin: 0 auto;
+        left: 8px;
       }
     }
   }

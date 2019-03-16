@@ -1,15 +1,17 @@
-$black: #000;
-$white: #fff;
+$black: #000; // color text, focus button
+$white: #fff; // color button, input
 
-$gold: #86764B;
-$gold-user: #85754A;
+$gold: #86764B; // button, title, active menu
+$gold-medium: #85754A; // active icon user, border active tab
 
-$yellow: #DFC800;
-$grey: #C4C4C4;
-$grey-hover: #424242;
-$border-color: #E5E5E5;
+$yellow: #DFC800; // border hover, hover social icon, hover copyright, line chart, checkbox
 
-$red: #FF7979;
-$red-bg: #FDEDED;
+$grey-medium: #C4C4C4; // color input, social icon
+$grey: #424242; //  hover button, hover icon user
+$grey-light: #E5E5E5; // border tab, border table
+$grey-extra-light: #F6F6F6; // hover table
 
-$backgroundRow: #F6F6F6;
+$red: #FF7979; // error text in form
+$red-light: #FDEDED; // error background in form
+
+
