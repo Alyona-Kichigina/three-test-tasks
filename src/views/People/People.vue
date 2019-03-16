@@ -4,7 +4,7 @@
       <div class="title">
         Посетители
       </div>
-      <div class="table-people">
+      <div class="table-people space-container">
         <transition
           name="fade"
           mode="out-in"
@@ -18,22 +18,22 @@
           />
         </transition>
       </div>
-      <div class="bnt-groups">
+      <div class="bnt-groups space-container">
         <PrimaryButton
-          class="mr-20 mb-20"
+          class="mr-button mb-button center-button"
           @click="getData"
         >
           Загрузить с сервера
         </PrimaryButton>
         <PrimaryButton
-          class="mr-20 mb-20"
+          class="mr-button mb-button center-button"
           @click="transferData"
         >
           Загрузить на сервер
         </PrimaryButton>
         <PrimaryButton
           @click="a"
-          class="mb-20"
+          class="mb-button center-button"
         >
           скачать в .xls
         </PrimaryButton>

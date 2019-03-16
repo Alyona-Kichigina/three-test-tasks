@@ -47,7 +47,7 @@ export default {
     .tabs {
       display: flex;
       justify-content: center;
-      border-bottom: 1px solid $border-color;
+      border-bottom: 1px solid $grey-light;
       margin-bottom: 35px;
       .tab-item {
         line-height: 24px;
@@ -65,7 +65,7 @@ export default {
         &.active {
           font-weight: 700;
           &:before {
-            background: $gold-user;
+            background: $gold-medium;
           }
         }
         &:before {

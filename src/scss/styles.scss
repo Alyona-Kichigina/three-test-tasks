@@ -1,7 +1,6 @@
 html {
   font-size: 14px;
 }
-
 body {
   margin: 0;
   padding: 0;
@@ -10,6 +9,25 @@ body {
   background: $white;
   font-size: 1rem;
 }
+a {
+  outline: none;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+form {
+  button {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+::placeholder {
+  color: $grey-medium;
+  font-size: 0.8571rem;
+}
+button {
+  background: none;
+  border: none;
+}
 
 .container {
   margin: 0 auto;
@@ -17,29 +35,32 @@ body {
     max-width: 1140px;
     min-width: 1140px;
   }
+}
+.space-container {
+  padding-right: 32px;
+  padding-left: 32px;
   @media (max-width: 860px) {
-    padding: 0 16px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
-a {
-  outline: none;
-  text-decoration: none;
-  transition: all 0.3s ease-in-out;
-}
+
 .title {
   font-weight: 700;
   font-size: 1.2857rem;
   text-transform: uppercase;
   font-family: 'RobotoSlab', sans-serif;
   padding-bottom: 20px;
+  padding-left: 32px;
+  padding-right: 32px;
+  @media (max-width: 860px) {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }
 
-.RobotoSlab {
+.f-f-RobotoSlab {
   font-family: 'RobotoSlab', sans-serif;
-}
-
-.btn {
-  box-sizing: border-box;
 }
 
 
@@ -49,17 +70,8 @@ a {
 .fade-enter, .fade-leave-to{
   opacity: 0;
 }
-form {
-  button {
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
 
-::placeholder {
-  color: $grey;
-  font-size: 0.8571rem;
-}
+
 
 .hidden-md {
   @media (max-width: 860px) {
@@ -73,23 +85,28 @@ form {
   }
 }
 
-.mr-20 {
+.mr-button {
   margin-right: 20px;
-
+  @media (max-width: 477px) {
+    margin-right: auto;
+  }
 }
 
-.mb-20 {
+.center-button {
+  @media (max-width: 477px) {
+    margin-right: auto;
+    margin-left: auto;
+    display: block !important;
+  }
+}
+
+.mb-button {
   margin-bottom: 20px;
 }
 
 
 .mt-10 {
   margin-top: 10px;
-}
-
-button {
-  background: none;
-  border: none;
 }
 
 #hot-display-license-info {
@@ -108,10 +125,10 @@ button {
         color: $black;
         border-right: none;
         &:last-child {
-          border-right: 1px solid $border-color;
+          border-right: 1px solid $grey-light;
         }
         &.active-header, &.ht__highlight{
-          color: $gold-user;
+          color: $gold-medium;
           background: $white;
         }
       }
@@ -121,23 +138,23 @@ button {
     tr {
       &:hover {
         td {
-          background: $backgroundRow;
+          background: $grey-extra-light;
         }
       }
     }
     td {
       border-right: none;
-      border-color: $border-color;
+      border-color: $grey-light;
       vertical-align: middle;
       font-size: 1rem;
       &.active-row, &.highlight {
-        background: $backgroundRow;
+        background: $grey-extra-light;
       }
       &.highlight {
         font-weight: 700;
       }
       &:last-child {
-        border-right: 1px solid $border-color;
+        border-right: 1px solid $grey-light;
       }
     }
   }

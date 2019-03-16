@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="container">
-      <div class="header-wrapper">
+      <div class="header-wrapper space-container">
         <div class="icon-watch-menu hidden-lg">
           <transition name="slide-fade">
             <button
