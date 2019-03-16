@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: 'Index',
+  name: 'Menu',
   data () {
     return {
       linksArray: [

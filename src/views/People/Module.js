@@ -30,8 +30,11 @@ const actions = {
     }
   },
   async [TRANSFER_PEOPLE_DATA] (payload) {
+    // FormData() нужна для того чтобы отправлять файлы по сети (она сереализует файлы в байт код)
     const fd = new FormData()
+    // задаем название файлу
     fd.append('filename', 'export.xlsx')
+    // добавляем файл
     fd.append('data', payload)
     try {
       await axios.post(TRANSFER_DATA, payload, { headers: { 'Content-Type': 'multipart/form-data', mode: 'no-cors' } })

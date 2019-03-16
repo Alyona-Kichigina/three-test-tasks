@@ -20,6 +20,7 @@ import Registration from '../../Layout/Registration'
 import Tab from '@/components/Tab'
 
 export default {
+  name: 'form',
   components: {
     SignIn, Registration, Tab
   },

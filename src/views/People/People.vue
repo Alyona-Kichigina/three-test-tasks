@@ -10,10 +10,10 @@
           mode="out-in"
         >
           <HotTable
+            v-if="show"
             ref="table"
             :data="peoplesData"
             :settings="settings"
-            v-if="show"
             class-name="tableOfVisitors"
           />
         </transition>
@@ -32,8 +32,8 @@
           Загрузить на сервер
         </PrimaryButton>
         <PrimaryButton
-          @click="a"
           class="mb-button center-button"
+          @click="downloadData"
         >
           скачать в .xls
         </PrimaryButton>
@@ -118,8 +118,10 @@ export default {
           { data: 'company.catchPhrase' },
           { data: 'company.bs' },
         ],
+        // для изменения данных в таблице
         afterChange: this.dataEditing,
       },
+      // алфавит для формированния файла с данными из таблицы
       alphabetArray: [
         'A', 'B', 'C', 'D', 'E',
         'F', 'G', 'H', 'I', 'J',
@@ -127,29 +129,37 @@ export default {
         'P', 'Q', 'R', 'S', 'T',
         'U', 'V', 'W', 'X', 'Y', 'Z'
       ],
+      // не показывать таблицу пока не нажата кнопка
       show: false
     }
   },
   computed: {
+    // передаем данные для таблицы
     peoplesData () {
       return this.$store.getters[READ_PEOPLE_DATA]
     },
   },
   methods: {
+    // получаем данные для таблицы
     getData () {
       this.show = true
       return this.$store.dispatch(FETCH_PEOPLE_DATA)
     },
+    // передаем данные из таблицы
     async transferData () {
+      // получаем таблицу
       const data = await this.exportData()
       return this.$store.dispatch(TRANSFER_PEOPLE_DATA, data)
     },
+    // изменяем данные в таблице
     dataEditing (arg) {
+      // если изменение произошло
       if (arg !== null) {
         this.$store.commit(SAVE_PEOPLE_DATA, this.$refs.table.hotInstance.getSourceData())
       }
     },
-    async a () {
+    // скачиваем данные из таблицы файлом
+    async downloadData () {
       const data = await this.exportData()
       const a = document.createElement('a')
       const url = URL.createObjectURL(data)
@@ -164,11 +174,17 @@ export default {
     },
     async exportData () {
       const tableData = this.$refs.table.hotInstance.getData()
+      // создаем новую таблицу
       const wb = new Excel.Workbook()
-      const ws = wb.addWorksheet('Export')
+      // даем название таблице
+      const ws = wb.addWorksheet('Export-Visitors')
+      // выводим хэадер таблицы
       this.settings.colHeaders.forEach((item, index) => {
+        // добавляем названия колонок
         const header = ws.getCell(`${this.alphabetArray[index]}1`)
+        // добавляем содержимое в верхнем регистре
         header.value = item.toUpperCase()
+        // стилизация хэадера таблицы
         header.font = {
           name: 'Roboto',
           color: { argb: 'FF000000' },
@@ -181,11 +197,14 @@ export default {
           wrapText: true
         }
       })
-      tableData.forEach((row, rowIndex) => {
-        row.forEach((column, columnIndex) => {
+      // добавляем остальные данные
+      tableData.forEach((rowArray, rowIndex) => {
+        // rowArray - массив данных, rowIndex - номер строки
+        // делаем еще один цикл чтобы добавить данные построчно, а не по ячейкам
+        rowArray.forEach((columnValue, columnIndex) => {
+          // columnValue - элемент из массива, columnIndex - номер в колонке
           const cell = ws.getCell(`${this.alphabetArray[columnIndex]}${rowIndex + 2}`)
-          cell.value = column
-          cell.alignment = { wrapText: true }
+          cell.value = columnValue
           cell.font = {
             name: 'Roboto',
             color: { argb: 'FF000000' },
@@ -199,7 +218,9 @@ export default {
           }
         })
       })
+      // записываем данные
       const data = await wb.xlsx.writeBuffer({ base64: true })
+      // создаем файл с сылкой
       return new Blob([data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' })
     }
   }
