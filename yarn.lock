@@ -592,12 +592,12 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@handsontable/formulajs@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@handsontable/formulajs/-/formulajs-2.0.0.tgz#3e41fedbb51a195dd5b8c2694afe171ec08f3a02"
+"@handsontable/formulajs@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@handsontable/formulajs/-/formulajs-2.0.2.tgz#5be4b9226cc47811f646ae46b1b985230cd82995"
   dependencies:
-    bessel "^0.2.0"
-    jStat "^1.7.0"
+    bessel "^1.0.2"
+    jstat "^1.9.2"
 
 "@handsontable/vue@^4.0.0":
   version "4.0.0"
@@ -1400,11 +1400,9 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
-bessel@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/bessel/-/bessel-0.2.0.tgz#13cb39cd29233219ec2da725e0ba0c66fb46b6f2"
-  dependencies:
-    voc ""
+bessel@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/bessel/-/bessel-1.0.2.tgz#828812291e0b62e94959cdea43fac186e8a7202d"
 
 bfj@^6.1.1:
   version "6.1.1"
@@ -4019,11 +4017,11 @@ hosted-git-info@^2.1.4:
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.7.1.tgz#97f236977bd6e125408930ff6de3eec6281ec047"
 
 hot-formula-parser@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/hot-formula-parser/-/hot-formula-parser-3.0.0.tgz#4019db8d565b84293ad7d1e46fcc1a4f894bb72e"
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/hot-formula-parser/-/hot-formula-parser-3.0.2.tgz#d71f03a4ef43ba3074bde383a0e36202b5b64116"
   dependencies:
-    "@handsontable/formulajs" "^2.0.0"
-    tiny-emitter "^2.0.1"
+    "@handsontable/formulajs" "^2.0.2"
+    tiny-emitter "^2.1.0"
 
 hpack.js@^2.1.6:
   version "2.1.6"
@@ -4588,10 +4586,6 @@ isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
 
-jStat@^1.7.0:
-  version "1.7.1"
-  resolved "https://registry.yarnpkg.com/jStat/-/jStat-1.7.1.tgz#e636dd87d72b305c060dfcc901de1732d15130c1"
-
 javascript-stringify@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/javascript-stringify/-/javascript-stringify-1.6.0.tgz#142d111f3a6e3dae8f4a9afd77d45855b5a9cce3"
@@ -4711,6 +4705,10 @@ jsprim@^1.2.2:
     extsprintf "1.3.0"
     json-schema "0.2.3"
     verror "1.10.0"
+
+jstat@^1.9.2:
+  version "1.9.3"
+  resolved "https://registry.yarnpkg.com/jstat/-/jstat-1.9.3.tgz#6a0e60c3b87fd714b61e765b77fc6b035437ee34"
 
 jszip@3.1.3:
   version "3.1.3"
@@ -7455,7 +7453,7 @@ timsort@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/timsort/-/timsort-0.3.0.tgz#405411a8e7e6339fe64db9a234de11dc31e02bd4"
 
-tiny-emitter@^2.0.1:
+tiny-emitter@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/tiny-emitter/-/tiny-emitter-2.1.0.tgz#1d1a56edfc51c43e863cbb5382a72330e3555423"
 
@@ -7765,10 +7763,6 @@ vm-browserify@0.0.4:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-0.0.4.tgz#5d7ea45bbef9e4a6ff65f95438e0a87c357d5a73"
   dependencies:
     indexof "0.0.1"
-
-voc@:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/voc/-/voc-1.1.0.tgz#d1a08aeff66646bf17cdba2e47c935a7a9b0218b"
 
 vue-chartjs@^3.4.0:
   version "3.4.0"
